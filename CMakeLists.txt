@@ -32,13 +32,7 @@ if (OPENMP_FOUND)
   set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 endif()
 
-
 if(BUILD_VGICP_CUDA)
-  set(CMAKE_CUDA_COMPILER "/usr/local/cuda/bin/nvcc")
-  set(CUDA_TOOLKIT_ROOT_DIR "/usr/local/cuda")
-  set(CUDA_NVRTC_SHORTHASH "/usr/local/cuda/lib64/libnvrtc.so")
-  set(CUDA_CUDART_LIBRARY "/usr/local/cuda/lib64/libcudart.so")
-  set(CUDA_cublas_LIBRARY "/usr/local/cuda/targets/x86_64-linux/lib")
   find_package(CUDA REQUIRED)
   include_directories(${CUDA_INCLUDE_DIRS})
   link_directories(${CUDA_LIBRARY_DIRS})
